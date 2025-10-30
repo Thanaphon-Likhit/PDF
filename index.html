@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ขอลงนามหนังสือฝึกงานใหม่ — ระบบสร้าง PDF</title>
+  <title>ขอลงนามหนังสือฝึกงานใหม่ — เอกสารสำคัญ</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>สร้างจดหมายฝึกงาน (PDF)</h1>
+    <h1>ระบบสร้างเอกสารสำคัญ (PDF)</h1>
+    <p class="note">สำหรับใช้ในการยื่นขอลงนามหนังสือฝึกงาน</p>
 
     <form id="letterForm">
       <label>ชื่อ-นามสกุล</label>
@@ -23,7 +24,10 @@
       <label>บริษัท</label>
       <input type="text" id="company" value="บริษัท ปูนซีเมนต์ (ท่าหลวง) จำกัด" required>
 
-      <button type="submit">สร้างไฟล์ PDF</button>
+      <label>วันที่ออกเอกสาร</label>
+      <input type="date" id="issuedate" required>
+
+      <button type="submit">สร้างไฟล์ PDF (เอกสารสำคัญ)</button>
     </form>
   </div>
 
