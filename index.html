@@ -3,23 +3,112 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>เอกสารสำคัญ — ขอลงนามหนังสือฝึกงานใหม่</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ขอลงนามหนังสือฝึกงานใหม่ — เอกสารสำคัญ</title>
+  <style>
+    body {
+      font-family: "TH Sarabun New", "Sarabun", sans-serif;
+      line-height: 1.8;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      background: white;
+      padding: 60px 80px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .date {
+      text-align: right;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 18px;
+      text-indent: 2em;
+      margin: 10px 0;
+    }
+
+    .sign {
+      margin-top: 60px;
+      text-align: right;
+      font-size: 18px;
+    }
+
+    button#printBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0078d7;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    button#printBtn:hover {
+      background: #005bb5;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      button#printBtn {
+        display: none;
+      }
+      .page {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>ระบบสร้างเอกสารราชการ (PDF)</h1>
-    <p class="note">สำหรับใช้ยื่นขอลงนามหนังสือส่งตัวฝึกงาน</p>
+  <div class="page" id="doc">
+    <h1>หนังสือราชการ (เอกสารสำคัญ)</h1>
+    <div class="date">วันที่ <span id="thaiDate"></span></div>
 
-    <form id="letterForm">
-      <label>วันที่ออกเอกสาร</label>
-      <input type="date" id="issuedate" required>
+    <p>เรียน คณะอาจารย์ เพื่อโปรดทราบ</p>
+    <p>เรื่อง ขอลงนามหนังสือฝึกงานใหม่</p>
 
-      <button type="submit">สร้างไฟล์ PDF</button>
-    </form>
+    <p>กระผม นาย <strong>ธนพนธ์ ลิขิตปัญญาวัฒน์</strong> เป็นนักศึกษา คณะสาธารณสุขศาสตร์ สาขาอาชีวอนามัยและความปลอดภัย ชั้นปีที่ 4 จะเข้ารับการฝึกงาน ในวันที่ <strong>10 พฤศจิกายน 2568 ถึง 27 กุมภาพันธ์ 2569</strong></p>
+
+    <p>ทางบริษัท <strong>ปูนซีเมนต์ (ท่าหลวง) จำกัด</strong> แจ้งว่า ให้ทำหนังสือส่งตัวฝึกงานมาใหม่ เนื่องจากต้องส่งทางบริษัทพรุ่งนี้ก่อนเวลา 11:00 น. โดยเป็นไฟล์ PDF มาก่อน ส่วนตัวจริงให้ส่ง 14:00 น.</p>
+
+    <p>จึงเรียนมาเพื่อโปรดพิจารณา</p>
+
+    <div class="sign">
+      ลงชื่อ ....................................................<br>
+      (<strong>นาย ธนพนธ์ ลิขิตปัญญาวัฒน์</strong>)
+    </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="script.js"></script>
+  <button id="printBtn" onclick="window.print()">🖨️ พิมพ์ / บันทึกเป็น PDF</button>
+
+  <script>
+    // แสดงวันที่แบบไทยอัตโนมัติ
+    const date = new Date();
+    const thaiMonths = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
+                        "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
+    const thaiDate = `${date.getDate()} ${thaiMonths[date.getMonth()]} ${date.getFullYear() + 543}`;
+    document.getElementById("thaiDate").textContent = thaiDate;
+  </script>
 </body>
 </html>
